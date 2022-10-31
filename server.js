@@ -774,7 +774,7 @@ function publishStatusUpdate(mediaId) {
   })
 }
   }
-            else if(next_post_url.substr(next_post_url.length-3, 3) == "png")
+            else if(next_post_url.substr(next_post_url.length-3, 3) == "png" || next_post_url.substr(next_post_url.length-3, 3) == "jpg")
               {
                 const fs = require('fs');
 const path = require('path');
@@ -965,7 +965,7 @@ getVideoDurationInSeconds('assets/video.mp4').then((duration) => {
      FindMedia();
 });
            }
-      else if(next_post_url.substr(next_post_url.length-3, 3) == "png")
+      else if(next_post_url.substr(next_post_url.length-3, 3) == "png" || next_post_url.substr(next_post_url.length-3, 3) == "jpg")
         {
           if(already_vids.includes(next_post_url) == false)
             {
