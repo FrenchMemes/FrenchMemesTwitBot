@@ -749,12 +749,35 @@ function finalizeUpload(mediaId) {
 }
           if(media_title.slice(0, 2) == "By")
         {
-          media_title = "🇫🇷";
+          function getRandomInt(max) {
+  return Math.floor(Math.random() * max);
+}
+const random_number = getRandomInt(5);
+          if(random_number == 1)
+            {
+              media_title = "🇫🇷";
+            }
+          else if(random_number == 2)
+            {
+              media_title = "Croissant";
+            }
+          else if(random_number == 3)
+            {
+              media_title = "Baguette";
+            }
+          else if(random_number == 4)
+            {
+              media_title = "Meme";
+            }
+          else
+            {
+              media_title = "";
+            }
         }
 function publishStatusUpdate(mediaId) {
   return new Promise(function(resolve, reject) {
     client.post("statuses/update", {
-      status: `${media_title}\n#memes #meme #funny #lol #memefrancais #xd #humour #fun #mdr`, //Message
+      status: `${media_title}\n#memes #meme #funny #lol #memefrancais #humour #fun #mdr`, //Message
       media_ids: mediaId
     }, function(error, data, response) {
       if (error) {
@@ -794,7 +817,7 @@ T.post('media/upload', { media_data: base64image }, function (err, data, respons
           image_title = "🇫🇷";
         }
       // now we can reference the media and post a tweet (media will attach to the tweet)
-      var params = { status: `${image_title}\n#memes #meme #funny #lol #memefrancais #xd #humour #fun #mdr`, media_ids: [mediaIdStr] }
+      var params = { status: `${image_title}\n#memes #meme #funny #lol #memefrancais #humour #fun #mdr`, media_ids: [mediaIdStr] }
  
       T.post('statuses/update', params, function (err, data, response) {
         console.log("Successfully uploaded media and tweeted! PNG !")
